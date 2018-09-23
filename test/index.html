@@ -25,10 +25,15 @@
 
     <script>
       document.addEventListener("DOMContentLoaded", function() {
+
         SCsEditor.SCsInitGlobal();
         window.editor = new SCsEditor.SCsEditor(
           document.getElementById('editor-container'),
           testSCs);
+
+        window.editor.onContentChanged = (value) => {
+          console.log(value);
+        };
 
         window.printContent = function() {
           console.log(window.editor.content);
